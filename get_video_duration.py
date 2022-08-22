@@ -4,16 +4,16 @@ from subprocess import CalledProcessError, check_output
 def get_duration(src):
 
     try:
-        a = check_output(
+        meta = check_output(
             f'ffprobe -v error -show_entries format=duration '
             f'-of default=noprint_wrappers=1:nokey=1 -sexagesimal "{src}"',
             shell=True)
-        return a.decode().strip()
+        return meta.decode().strip()
 
     except CalledProcessError as e:
         print(e.output)
-        a = None
-        return a
+        meta = None
+        return meta
 
 
 if __name__ == '__main__':
