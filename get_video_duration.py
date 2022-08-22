@@ -12,8 +12,7 @@ def get_duration(src):
 
     except CalledProcessError as e:
         print(e.output)
-        meta = None
-        return meta
+        return None
 
 
 if __name__ == '__main__':
